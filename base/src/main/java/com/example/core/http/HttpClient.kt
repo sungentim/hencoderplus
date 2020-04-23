@@ -40,6 +40,7 @@ class HttpClient : OkHttpClient() {
 
     @SuppressWarnings("unchecked")
     fun <T> get(path: String, type: Type, entityCallback: EntityCallback<T>) {
+
         val request = Request.Builder().url("https://api.hencoder.com/$path").build()
         var call = INSTANCE.newCall(request)
         call.enqueue(object : Callback {
