@@ -6,6 +6,9 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context="com.example.app.MainActivity">
+    <com.example.app.widget.TestView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
     <LinearLayout

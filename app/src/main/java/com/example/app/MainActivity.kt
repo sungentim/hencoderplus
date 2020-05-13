@@ -21,6 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import javax.sql.DataSource
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -32,13 +33,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        et_username.setText(CacheUtils.get(usernameKey))
-        et_password.setText(CacheUtils.get(passwordKey))
-        btn_login.setOnClickListener(this)
-        code_view.setOnClickListener(this)
+//        et_username.setText(CacheUtils.get(usernameKey))
+//        et_password.setText(CacheUtils.get(passwordKey))
+//        btn_login.setOnClickListener(this)
+//        code_view.setOnClickListener(this)
+//        print(100f.px)
         val rengViewModel = RengViewModel()
-        rengViewModel.repos.observe(this,
-                Observer { btn_login.text = it[0].name })
+//        rengViewModel.repos.observe(this,
+//                Observer { btn_login.text = it[0].name })
 //        classicIoCode1(block = ::UI1)
 //        GlobalScope.launch {
 //            io1()
