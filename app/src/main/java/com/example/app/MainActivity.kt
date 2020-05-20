@@ -1,30 +1,14 @@
 package com.example.app
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import com.example.app.entity.Repo
 import com.example.app.entity.User
 import com.example.core.utils.CacheUtils
 import com.example.core.utils.Utils
-import com.example.lesson.LessonActivity
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-<<<<<<< HEAD
-=======
-import javax.sql.DataSource
->>>>>>> 37b14d3d246a1d151bf7b818d4668a29d2220487
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -36,24 +20,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-<<<<<<< HEAD
         et_username.setText(CacheUtils.get(usernameKey))
         et_password.setText(CacheUtils.get(passwordKey))
         btn_login.setOnClickListener(this)
         code_view.setOnClickListener(this)
 //        GlobalScope.launch(Dispatchers.Main) {
-=======
 //        et_username.setText(CacheUtils.get(usernameKey))
 //        et_password.setText(CacheUtils.get(passwordKey))
 //        btn_login.setOnClickListener(this)
 //        code_view.setOnClickListener(this)
 //        print(100f.px)
-        val rengViewModel = RengViewModel()
+//        val rengViewModel = RengViewModel()
 //        rengViewModel.repos.observe(this,
 //                Observer { btn_login.text = it[0].name })
 //        classicIoCode1(block = ::UI1)
 //        GlobalScope.launch {
->>>>>>> 37b14d3d246a1d151bf7b818d4668a29d2220487
 //            io1()
 //            UI1()
 //            io2()
@@ -61,7 +42,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            io3()
 //            UI3()
 //        }
-<<<<<<< HEAD
         classicIOCode(block = ::UI1)
     }
 
@@ -77,9 +57,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 block.invoke()
             }
         }
-=======
-
->>>>>>> 37b14d3d246a1d151bf7b818d4668a29d2220487
     }
 
     private fun classicIoCode1(toUIThread: Boolean = true, block: () -> Unit) {
