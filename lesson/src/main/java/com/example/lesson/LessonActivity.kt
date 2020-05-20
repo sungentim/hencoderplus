@@ -7,7 +7,6 @@ import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.core.BaseView
 import com.example.lesson.entity.Lesson
 import kotlinx.android.synthetic.main.activity_lesson.*
@@ -60,7 +59,7 @@ class LessonActivity : AppCompatActivity(), BaseView<LessonPresenter>, Toolbar.O
      */
     private val lessonPresenter = LessonPresenter(this)
     private val lessonAdapter = LessonAdapter()
-    private lateinit var refreshLayout: SwipeRefreshLayout
+//    private lateinit var refreshLayout: SwipeRefreshLayout
 
 
     override fun onMenuItemClick(p0: MenuItem?): Boolean {
@@ -76,14 +75,14 @@ class LessonActivity : AppCompatActivity(), BaseView<LessonPresenter>, Toolbar.O
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = lessonAdapter
         list.addItemDecoration(DividerItemDecoration(this, LinearLayout.VERTICAL))
-        swipe_refresh_layout.setOnRefreshListener { presenter.fetchData() }
-        swipe_refresh_layout.isRefreshing = true
+//        swipe_refresh_layout.setOnRefreshListener { presenter.fetchData() }
+//        swipe_refresh_layout.isRefreshing = true
         presenter.fetchData()
     }
 
     fun showResult(lessons: List<Lesson>) {
         lessonAdapter.updateAndNotify(lessons)
-        swipe_refresh_layout.isRefreshing = false
+//        swipe_refresh_layout.isRefreshing = false
 
     }
 

@@ -20,6 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -34,16 +35,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         et_password.setText(CacheUtils.get(passwordKey))
         btn_login.setOnClickListener(this)
         code_view.setOnClickListener(this)
+//        GlobalScope.launch(Dispatchers.Main) {
+//            io1()
+//            UI1()
+//            io2()
+//            UI2()
+//            io3()
+//            UI3()
+//        }
+        classicIOCode(block = ::UI1)
+    }
 
-        GlobalScope.launch {
-            io1()
-            UI1()
-            io2()
-            UI2()
-            io3()
-            UI3()
+    private fun classicIOCode(toUIThread: Boolean = true, block: () -> Unit) {
+        thread {
+            println("classicIOCode---->${Thread.currentThread().name}")
+            Thread.sleep(1000)
+            if (toUIThread) {
+                runOnUiThread {
+                    block.invoke()
+                }
+            } else {
+                block.invoke()
+            }
         }
-
     }
 
     private suspend fun io1() {
