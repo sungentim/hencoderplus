@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.app.entity.Repo
 import com.example.app.entity.User
 import com.example.core.utils.CacheUtils
@@ -20,6 +21,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+<<<<<<< HEAD
+=======
+import javax.sql.DataSource
+>>>>>>> 37b14d3d246a1d151bf7b818d4668a29d2220487
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -31,11 +36,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+<<<<<<< HEAD
         et_username.setText(CacheUtils.get(usernameKey))
         et_password.setText(CacheUtils.get(passwordKey))
         btn_login.setOnClickListener(this)
         code_view.setOnClickListener(this)
 //        GlobalScope.launch(Dispatchers.Main) {
+=======
+//        et_username.setText(CacheUtils.get(usernameKey))
+//        et_password.setText(CacheUtils.get(passwordKey))
+//        btn_login.setOnClickListener(this)
+//        code_view.setOnClickListener(this)
+//        print(100f.px)
+        val rengViewModel = RengViewModel()
+//        rengViewModel.repos.observe(this,
+//                Observer { btn_login.text = it[0].name })
+//        classicIoCode1(block = ::UI1)
+//        GlobalScope.launch {
+>>>>>>> 37b14d3d246a1d151bf7b818d4668a29d2220487
 //            io1()
 //            UI1()
 //            io2()
@@ -43,12 +61,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            io3()
 //            UI3()
 //        }
+<<<<<<< HEAD
         classicIOCode(block = ::UI1)
     }
 
     private fun classicIOCode(toUIThread: Boolean = true, block: () -> Unit) {
         thread {
             println("classicIOCode---->${Thread.currentThread().name}")
+            Thread.sleep(1000)
+            if (toUIThread) {
+                runOnUiThread {
+                    block.invoke()
+                }
+            } else {
+                block.invoke()
+            }
+        }
+=======
+
+>>>>>>> 37b14d3d246a1d151bf7b818d4668a29d2220487
+    }
+
+    private fun classicIoCode1(toUIThread: Boolean = true, block: () -> Unit) {
+        thread {
             Thread.sleep(1000)
             if (toUIThread) {
                 runOnUiThread {
@@ -100,18 +135,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun login() {
-        val retrofit = Retrofit.Builder().baseUrl("").build()
-        val service = retrofit.create(GitHubService::class.java)
-        val listRepos = service.listRepos("sungentim")
-        listRepos?.enqueue(object : Callback<List<Repo?>?> {
-            override fun onFailure(call: Call<List<Repo?>?>, t: Throwable) {
-            }
-
-            override fun onResponse(call: Call<List<Repo?>?>, response: Response<List<Repo?>?>) {
-                println("response--->${response.body()!![0]!!.name}")
-            }
-        })
-        return
+//        val retrofit = Retrofit.Builder().baseUrl("").build()
+//        val service = retrofit.create(GitHubService::class.java)
+//        val listRepos = service.listRepos("sungentim")
+//        listRepos?.enqueue(object : Callback<List<Repo?>?> {
+//            override fun onFailure(call: Call<List<Repo?>?>, t: Throwable) {
+//            }
+//
+//            override fun onResponse(call: Call<List<Repo?>?>, response: Response<List<Repo?>?>) {
+//                println("response--->${response.body()!![0]!!.name}")
+//            }
+//        })
+//        return
 //        val name = et_username.text.toString()
 //        val password = et_password.text.toString()
 //        val code = et_code.text.toString()
