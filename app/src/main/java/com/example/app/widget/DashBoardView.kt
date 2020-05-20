@@ -8,12 +8,12 @@ import com.example.app.entity.px
 import kotlin.math.cos
 import kotlin.math.sin
 
-val RADIUS = 100f.px
-const val DASH_BOARD_COUNT = 5
-const val OPEN_ANGEL = 120f
-val DASH_LENGTH = 2f.px
-val DASH_HEIGHT = 5f.px
-val INDICATOR_LENGTH = 90f.px
+private val RADIUS = 100f.px
+private const val DASH_BOARD_COUNT = 5
+private const val OPEN_ANGEL = 120f
+private val DASH_LENGTH = 2f.px
+private val DASH_HEIGHT = 5f.px
+private val INDICATOR_LENGTH = 90f.px
 
 
 class DashBoardView(context: Context, attributes: AttributeSet?) :

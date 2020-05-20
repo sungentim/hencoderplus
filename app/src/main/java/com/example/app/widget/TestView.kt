@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import com.example.app.px
 
-val RADIUS = 100f.px
+private val RADIUS = 100f.px
 
 class TestView(context: Context, attributes: AttributeSet) : View(context, attributes) {
     override fun onDraw(canvas: Canvas) {
