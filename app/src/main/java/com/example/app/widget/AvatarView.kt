@@ -34,5 +34,15 @@ class AvatarView(context: Context, attributes: AttributeSet?) :
         return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian, options)
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        println("onMeasure")
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+        println("onLayout")
+    }
+
 
 }
