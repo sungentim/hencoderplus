@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.app.widget.MultLineTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.app.widget.TagLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#00F"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context="com.example.app.MainActivity">
 
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:background="#F00" />
 
-
-</com.example.app.widget.MultLineTextView>
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="#0F0" />
+</com.example.app.widget.TagLayout>
