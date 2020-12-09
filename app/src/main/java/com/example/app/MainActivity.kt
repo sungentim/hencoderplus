@@ -2,10 +2,18 @@ package com.example.app
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import com.example.app.entity.User
 import com.example.core.utils.CacheUtils
 import com.example.core.utils.Utils
+import io.reactivex.Single
+import io.reactivex.SingleObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,6 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         const val passwordKey = "password"
     }
 
+    private val fragments = mutableListOf<Fragment>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +34,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         et_password.setText(CacheUtils.get(passwordKey))
         btn_login.setOnClickListener(this)
         code_view.setOnClickListener(this)
+        view_test.setOnClickListener {
+            Toast.makeText(this, "点击了", Toast.LENGTH_LONG).show()
+        }
+        fragments.add(FragmentFirst())
+        fragments.add(FragmentSecond())
+        vp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+            override fun getItem(position: Int): Fragment {
+                return fragments[position]
+            }
+
+            override fun getCount(): Int {
+                return fragments.size
+            }
+        }
 //        GlobalScope.launch(Dispatchers.Main) {
 //        et_username.setText(CacheUtils.get(usernameKey))
 //        et_password.setText(CacheUtils.get(passwordKey))
@@ -43,6 +67,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            UI3()
 //        }
         classicIOCode(block = ::UI1)
+
+        testRxJava()
+
+    }
+
+    private fun testRxJava() {
+        val just = Single.just(1)
+        val map = just.map {
+            it.toString()
+        }
+        map.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(object : SingleObserver<String> {
+            override fun onSuccess(t: String) {
+                tv_rx.text = t
+            }
+
+            override fun onSubscribe(d: Disposable) {
+            }
+
+            override fun onError(e: Throwable) {
+            }
+        })
     }
 
     private fun classicIOCode(toUIThread: Boolean = true, block: () -> Unit) {

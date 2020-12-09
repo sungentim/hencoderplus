@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import com.example.app.dp
 
@@ -12,5 +13,13 @@ class TestView(context: Context, attributes: AttributeSet) : View(context, attri
     override fun onDraw(canvas: Canvas) {
         var paint = Paint(Paint.ANTI_ALIAS_FLAG)
         canvas.drawLine(100f, 100f, 200f, 200f, paint)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.actionMasked) {
+            MotionEvent.ACTION_DOWN -> return true
+            MotionEvent.ACTION_UP -> performClick()
+        }
+        return false
     }
 }

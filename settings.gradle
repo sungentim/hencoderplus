@@ -1,1 +1,2 @@
+include ':java_test'
 include ':lesson', ':app', ':base'

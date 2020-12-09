@@ -6,9 +6,21 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context="com.example.app.MainActivity">
-    <com.example.app.widget.TestView
+    <TextView
+        android:id="@+id/tv_rx"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <com.example.app.widget.MyViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.app.widget.TestView
+        android:id="@+id/view_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
 
 
     <LinearLayout
@@ -58,15 +70,15 @@
 
         <EditText
             android:id="@+id/et_code"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <com.example.app.widget.CodeView
             android:id="@+id/code_view"
-            android:layout_margin="8dp"
             android:layout_width="80dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="8dp" />
     </LinearLayout>
 
 
